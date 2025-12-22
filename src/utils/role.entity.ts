@@ -15,6 +15,19 @@ export class Role{
     })
     status:status
 
+    get statusText():string{
+        switch(this.status){
+            case status.PENDING:
+                return 'Pending'
+            case status.APPROVED:
+                return 'Approved'
+            case status.REJECTED:
+                return 'Rejected'
+            default:
+                return 'Unknown'
+        }
+    }
+
     @CreateDateColumn()
     createdAt:Date
 

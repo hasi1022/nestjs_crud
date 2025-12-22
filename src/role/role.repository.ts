@@ -13,7 +13,7 @@ export class roleRepo extends Repository<Role>{
        return await this.save(role)
     }
     async getRole(){
-
+       return await this.find()
     }
     async updateRole(){
 
