@@ -1,12 +1,16 @@
-import { IsNotEmpty,IsString,IsEnum } from "class-validator";
+import { Transform } from "class-transformer";
+import { IsNotEmpty,IsString,IsEnum,MinLength } from "class-validator";
 import { status } from "src/utils/enum/status.enum";
 export class roleDto{
 
-    @IsNotEmpty()
-    @IsString()
+    @IsNotEmpty({message:'role should not be empty'})
+    @IsString({message:'role should be string'})
+    @MinLength(2,{message:'atleast length should be 2 '})
+    @Transform(({value})=>value.trim())
     role:string
 
-    @IsNotEmpty()
-    @IsEnum(status)
+    @IsNotEmpty({message:'status is required'})
+    @IsEnum(status,{message:'invalid status code'})
     status:status 
+
 }
