@@ -44,4 +44,7 @@ async getRole(page: number,limit: number,search?: string,order?:string,status?:n
   async delete(id:string){
      return this.repo.deleteRole(id)
   }
+  async getRoleId(id:string){
+    return this.repo.getRoleId(id)
+  }
 }

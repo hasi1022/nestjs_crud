@@ -11,19 +11,19 @@ export class subscriptionRepo extends Repository<Subscription>{
     }
     async createSubscription(data:subscriptionDto){
         const subscription=this.create(data)
-        return this.save(subscription)
+        return await this.save(subscription)
     }
     async getSubscription(query:SelectQueryBuilder<Subscription>):Promise<[Subscription[],number]>{
-        return query.getManyAndCount()
+        return await query.getManyAndCount()
 
     }
     async updateSubscription(data:subscriptionDto,id:string){
         if(!data){
             throw new BadRequestException('No data found')
         }
-        return this.update({id:Number(id)},data)
+        return await this.update({id:Number(id)},data)
     }
     async deleteSubscription(id:string){
-       return this.delete({id:Number(id)})
+       return await this.softDelete({id:Number(id)})
     }
 }

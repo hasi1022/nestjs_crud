@@ -5,7 +5,9 @@ import { RoleModule } from './role/role.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Role } from './utils/role.entity';
 import { SubscriptionModule } from './subscription/subscription.module';
+import { Operation } from './utils/opration.entity';
 import { Subscription } from './utils/subscription.entity';
+import { OperationModule } from './operation/operation.module';
 
 @Module({
   imports: [RoleModule,TypeOrmModule.forRoot({
@@ -17,9 +19,9 @@ import { Subscription } from './utils/subscription.entity';
     database:'newUser2',
     synchronize:true,
     logging:true,
-    entities:[Role,Subscription]
+    entities:[Role,Subscription,Operation]
 
-  }), SubscriptionModule],
+  }), SubscriptionModule, OperationModule],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -14,6 +14,10 @@ export class RoleController {
 
     return this.roleservice.getRole(Number(page),Number(limit),search,order,Number(status))
   }
+  @Get('display/:id')
+  getId(@Param('id')id:string){
+  return this.roleservice.getRoleId(id)
+  }
   @Put('update/:id')
   update(@Body()data:roleDto,@Param('id')id:string){
     return this.roleservice.update(data,id);
@@ -22,4 +26,5 @@ export class RoleController {
   delete(@Param('id')id:string){
     return this.roleservice.delete(id)
   }
+  
 }

@@ -23,6 +23,9 @@ export class roleRepo extends Repository<Role>{
        return await this.update({id:Number(id)},data)
     }
     async deleteRole(id:string){
-       return await this.delete({id:Number(id)})
+       return await this.softDelete({id:Number(id)})
+    }
+    async getRoleId(id:string){
+        return await  this.findOneBy({id:Number(id)})
     }
 }

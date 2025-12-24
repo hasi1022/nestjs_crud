@@ -25,5 +25,8 @@ export class Subscription{
     @UpdateDateColumn()
     updatedAt:Date
 
+    @DeleteDateColumn()
+    deletedAt:Date
+
 
 }
